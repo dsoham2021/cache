@@ -1,0 +1,39 @@
+#-----------------------------------------------------------
+# xsim v2023.1 (64-bit)
+# SW Build 3865809 on Sun May  7 15:04:56 MDT 2023
+# IP Build 3864474 on Sun May  7 20:36:21 MDT 2023
+# SharedData Build 3865790 on Sun May 07 13:33:03 MDT 2023
+# Start of session at: Thu Mar 19 21:34:37 2026
+# Process ID: 2115445
+# Current directory: /home/catstud/sd/remote/cache/tb
+# Command line: xsim -mode tcl -source {xsim.dir/cache_ctrl_tb_snapshot/xsim_script.tcl}
+# Log file: /home/catstud/sd/remote/cache/tb/xsim.log
+# Journal file: /home/catstud/sd/remote/cache/tb/xsim.jou
+# Running On: catpc13, OS: Linux, CPU Frequency: 2776.851 MHz, CPU Physical cores: 6, Host memory: 16423 MB
+#-----------------------------------------------------------
+source xsim.dir/cache_ctrl_tb_snapshot/xsim_script.tcl
+# xsim {cache_ctrl_tb_snapshot} -autoloadwcfg -tclbatch {Makefile_cfg_xsim.tcl}
+Time resolution is 1 ps
+source Makefile_cfg_xsim.tcl
+## log_wave -recursive *
+## run all
+
+=== Reset done ===
+
+PASS [T1 cold read miss]
+PASS [T2 cold write miss]
+FAIL [T3 read hit] resp_valid: got=0 exp=1
+FAIL [T4 read hit word1] resp_valid: got=0 exp=1
+FAIL [T5 write hit ack] resp_valid: got=0 exp=1
+FAIL [T5 write hit verify] resp_valid: got=0 exp=1
+FAIL [T6 partial write ack] resp_valid: got=0 exp=1
+FAIL [T6 partial write verify] resp_valid: got=0 exp=1
+FAIL [T7 read hit addr B] resp_valid: got=0 exp=1
+PASS [T8 tag mismatch miss]
+
+=== Results: 3 PASS, 7 FAIL ===
+
+SOME TESTS FAILED
+$finish called at time : 746 ns : File "/home/catstud/sd/remote/cache/rtl/cache_ctrl_tb.sv" Line 243
+## exit
+INFO: [Common 17-206] Exiting xsim at Thu Mar 19 21:34:40 2026...

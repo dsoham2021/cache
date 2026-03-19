@@ -1,0 +1,15 @@
+#-----------------------------------------------------------
+# xsim v2023.1 (64-bit)
+# SW Build 3865809 on Sun May  7 15:04:56 MDT 2023
+# IP Build 3864474 on Sun May  7 20:36:21 MDT 2023
+# SharedData Build 3865790 on Sun May 07 13:33:03 MDT 2023
+# Start of session at: Thu Mar 19 21:34:37 2026
+# Process ID: 2115445
+# Current directory: /home/catstud/sd/remote/cache/tb
+# Command line: xsim -mode tcl -source {xsim.dir/cache_ctrl_tb_snapshot/xsim_script.tcl}
+# Log file: /home/catstud/sd/remote/cache/tb/xsim.log
+# Journal file: /home/catstud/sd/remote/cache/tb/xsim.jou
+# Running On: catpc13, OS: Linux, CPU Frequency: 2776.851 MHz, CPU Physical cores: 6, Host memory: 16423 MB
+#-----------------------------------------------------------
+source xsim.dir/cache_ctrl_tb_snapshot/xsim_script.tcl
+source Makefile_cfg_xsim.tcl
