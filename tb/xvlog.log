@@ -1,7 +1,0 @@
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/catstud/sd/remote/cache/rtl/cache_pkg.sv" into library work
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/catstud/sd/remote/cache/rtl/cache_array.sv" into library work
-INFO: [VRFC 10-311] analyzing module cache_array
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/catstud/sd/remote/cache/rtl/cache_ctrl.sv" into library work
-INFO: [VRFC 10-311] analyzing module cache_ctrl
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/catstud/sd/remote/cache/rtl/cache_ctrl_tb.sv" into library work
-INFO: [VRFC 10-311] analyzing module cache_ctrl_tb

@@ -3,6 +3,7 @@ TOP_NAME    = cache_ctrl
 TB_NAME     = cache_ctrl_tb
 SNAPSHOT    = $(TB_NAME)_snapshot
 XSIM_CFG    = Makefile_cfg_xsim.tcl
+INIT_FILE   = cache_init.mem
 
 .PHONY: all sv_compile elaborate simulate simulate_dump clean
 
@@ -19,6 +20,7 @@ sv_compile:
 
 # ── Elaborate ────────────────────────────────────────────────────────
 elaborate: sv_compile
+	@if [ -f $(SRC_PATH)/$(INIT_FILE) ]; then cp $(SRC_PATH)/$(INIT_FILE) .; fi
 	xelab -debug typical -top $(TB_NAME) -snapshot $(SNAPSHOT)
 
 # ── Simulate (run to finish, no waveform) ────────────────────────────
