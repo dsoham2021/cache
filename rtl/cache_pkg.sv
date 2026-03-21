@@ -61,7 +61,8 @@ typedef enum logic [2:0] {
     S_IDLE = 3'd0,
     S_TAG_CHECK = 3'd1,
     S_HIT = 3'd2,
-    S_MISS = 3'd3
+    S_MISS = 3'd3,
+    S_REFILL = 3'd4
 
 } core_state_e;
 

@@ -165,6 +165,10 @@ module cache_ctrl #(
     // ----------------------------------------------------------------
     // Core response
     // ----------------------------------------------------------------
+
+    logic[OFFSET_W+2: 0] req_byte_off;
+    assign req_byte_off = {req_offset, 3'b000};
+
     assign core_req_ready_o = (cState == S_IDLE);
 
     always_comb begin
@@ -175,7 +179,12 @@ module cache_ctrl #(
             core_resp_valid_o = 1'b1;
             if (saved_req.rw == CORE_RD)
                 // Extract the requested word from the line using byte offset
+
+                // Wrong, SV multiplies 4 bit value and overflow leads to always being zero
                 core_resp_payload_o.data = rd_line.data[req_offset*8 +: WORD_BITS];
+
+                //core_resp_payload_o.data = rd_line.data[req_byte_off +: WORD_BITS];
+
             // CORE_WR: valid=1 is the write-ack, data field is don't-care
         end
     end
