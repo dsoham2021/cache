@@ -53,7 +53,12 @@ module cache_ctrl #(
 
     // Memory bus - response channel
     input logic mem_resp_valid_i,
-    input logic [LINE_BITS-1:0] mem_resp_data_i
+    input logic [LINE_BITS-1:0] mem_resp_data_i,
+
+    // Performance counter interface
+    input  logic        perf_clear_i,
+    input  logic [2:0]  perf_addr_i,
+    output logic [31:0] perf_data_o
 );
 
     // ----------------------------------------------------------------
@@ -336,5 +341,18 @@ module cache_ctrl #(
 
         end
     end
+
+    // ----------------------------------------------------------------
+    // Performance counters
+    // ----------------------------------------------------------------
+    cache_perf #(.CNT_W(32)) u_perf (
+        .clk          (clk),
+        .rst_n        (rst_n),
+        .clear_i      (perf_clear_i),
+        .cState       (cState),
+        .cNextState   (cNextState),
+        .reg_addr_i   (perf_addr_i),
+        .reg_data_o   (perf_data_o)
+    );
 
 endmodule : cache_ctrl

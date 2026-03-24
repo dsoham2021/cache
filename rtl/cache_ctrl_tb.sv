@@ -18,6 +18,10 @@ module cache_ctrl_tb;
     logic        core_resp_valid;
     core_resp_t  core_resp_payload;
 
+    logic        perf_clear;
+    logic [2:0]  perf_addr;
+    logic [31:0] perf_data;
+
     logic                  mem_req_valid;
     logic                  mem_req_rw;
     logic [ADDR_W-1:0]     mem_req_addr;
@@ -35,6 +39,9 @@ module cache_ctrl_tb;
         .core_resp_valid_i   (1'b0),
         .core_resp_valid_o   (core_resp_valid),
         .core_resp_payload_o (core_resp_payload),
+        .perf_clear_i        (perf_clear),
+        .perf_addr_i         (perf_addr),
+        .perf_data_o         (perf_data),
         .mem_req_valid_o     (mem_req_valid),
         .mem_req_rw_o        (mem_req_rw),
         .mem_req_addr_o      (mem_req_addr),
@@ -124,6 +131,8 @@ module cache_ctrl_tb;
     // Test sequence
     // ----------------------------------------------------------------
     initial begin
+        perf_clear = 0;
+        perf_addr  = 0;
         core_req_valid   = 0;
         core_req_payload = '0;
         rst_n = 0;
@@ -199,6 +208,14 @@ module cache_ctrl_tb;
                 core_resp_payload.data,
                 (core_resp_payload.data === 32'h0004_3000) ? "PASS" : "FAIL");
         else $display("T6 RD miss ADDR_CX: no response — FAIL");
+
+        $display("\n=== Performance Counters ===");
+        perf_addr = 3'd0; #1; $display("  Total requests : %0d", perf_data);
+        perf_addr = 3'd1; #1; $display("  Hits           : %0d", perf_data);
+        perf_addr = 3'd2; #1; $display("  Misses         : %0d", perf_data);
+        perf_addr = 3'd3; #1; $display("  Evictions      : %0d", perf_data);
+        perf_addr = 3'd4; #1; $display("  Hit rate       : %0d/256 (%0d%%)",
+                                perf_data, (perf_data*100)/256);
 
         $display("\n=== Done ===");
         $finish;

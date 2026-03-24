@@ -16,6 +16,7 @@ sv_compile:
 		$(SRC_PATH)/cache_pkg.sv \
 		$(SRC_PATH)/cache_array.sv \
 		$(SRC_PATH)/mem_model.sv \
+		$(SRC_PATH)/cache_perf.sv\
 		$(SRC_PATH)/$(TOP_NAME).sv \
 		$(SRC_PATH)/$(TB_NAME).sv
 
