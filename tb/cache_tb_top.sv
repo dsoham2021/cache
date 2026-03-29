@@ -200,7 +200,7 @@ module cache_tb_top;
 
         // ── T4: Write miss, cold + readback ───────────────────────────
         $display("-- T4: Write miss cold --");
-        send(CORE_WR, ADDR_B, 32'hDEAD_BEEF, 4'hF);
+        send(CORE_WR, ADDR_B, 32'h0000_2000, 4'hF);
         send(CORE_RD, ADDR_B, '0, 4'hF);
         wait_drain();
 

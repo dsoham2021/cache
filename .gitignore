@@ -1,0 +1,93 @@
+
+# General Vivado logs & temp
+*.jou
+*.log
+*.str
+*.pb
+*.wdb
+*.wcfg
+*.vcd
+*.vpd
+*.fst
+
+# Simulation dumps
+*.saif
+*.fsdb
+
+# Vivado project cache/build dirs
+.cache/
+.hw/
+.ip_user_files/
+.sim/
+.runs/
+.gen/
+
+# Xilinx specific
+*.xpr
+*.xpr.user
+*.xpr.lock
+
+# Generated IP files
+*.dcp
+*.xci
+*.xcix
+*.bd
+*.bda
+
+# Bitstream / reports (optional: keep if needed)
+*.bit
+*.bin
+*.ltx
+*.rpt
+*.runs/
+
+# Webtalk / usage stats
+webtalk.log
+webtalk.jou
+
+# ========================
+# Simulation Tools
+# ========================
+
+# Questa / ModelSim
+work/
+transcript
+vsim.wlf
+modelsim.ini
+
+# VCS
+csrc/
+simv/
+simv.daidir/
+*.vcs
+*.key
+
+# Xcelium / Incisive
+INCA_libs/
+irun.log
+ncsim.log
+
+# ========================
+# OS / Editor junk
+# ========================
+
+# Linux / macOS
+*~
+*.swp
+*.swo
+.DS_Store
+
+# VSCode
+.vscode/
+
+# ========================
+# Custom (optional)
+# ========================
+
+# Waveforms / debug
+waves/
+dump/
+
+
+.Xil/
+xsim.dir/
